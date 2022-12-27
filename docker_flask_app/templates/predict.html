@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Salaries in Toronto</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        
+
+    </head>
+
+    <style>
+        html { width: 100%; height:100%; overflow:hidden; }
+
+        body { 
+            width: 100%;
+            height:100%;
+            font-family: 'Helvetica';
+            background: #fff;
+            color: rgb(0,0,0);
+            font-size: 24px;
+            text-align:left;
+            letter-spacing:1.4px;
+
+        }
+
+        .box { 
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            margin: -150px 0 0 -150px;
+            width:500px;
+            height:400px;
+            color:#000
+        }
+
+        h1 { color: rgb(170, 127, 127); text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:left; } */
+
+        input[type=text] { 
+            width: 100%; 
+            margin-bottom: 10px; 
+            background: #fff;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 13px;
+            color: #000;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 4px;
+            box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+            -webkit-transition: box-shadow .5s ease;
+            -moz-transition: box-shadow .5s ease;
+            -o-transition: box-shadow .5s ease;
+            -ms-transition: box-shadow .5s ease;
+            transition: box-shadow .5s ease;
+        } 
+
+        select { 
+            width: 30%; 
+            margin-bottom: 10px; 
+            background: #fff;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 13px;
+            color: #000f;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 4px;
+            box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+            -webkit-transition: box-shadow .5s ease;
+            -moz-transition: box-shadow .5s ease;
+            -o-transition: box-shadow .5s ease;
+            -ms-transition: box-shadow .5s ease;
+            transition: box-shadow .5s ease;
+
+        }
+        
+        button { 
+            width: 100%; 
+            margin-bottom: 10px; 
+            background: #fff;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 13px;
+            color: #000f;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 4px;
+            box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+            -webkit-transition: box-shadow .5s ease;
+            -moz-transition: box-shadow .5s ease;
+            -o-transition: box-shadow .5s ease;
+            -ms-transition: box-shadow .5s ease;
+            transition: box-shadow .5s ease;
+        }
+    </style>
+
+    <body >
+        <div class="box">
+
+            <h1>Predict Job Salary</h1>
+
+            <!--<form action="/predict" method="post">-->
+            <form action="{{url_for('predict')}}" method="post">
+                <label for = "companyId"> Program_ID </label>
+                <input id = "companyId" type="text"  name = "companyId" value = "COMP11" readonly><br><br>
+
+                <label for = "jobType"> Select a job type </label>
+                <select id = "jobType" name = "jobType">
+                    <option value = "SENIOR">Senior</option>
+                    <option value = "JUNIOR">Junior</option>
+                    <option value = "CTO">CTO</option>
+                    <option value = "CFO">CFO</option>
+                    <option value = "JANITOR">Janitor</option>
+                    <option value = "MANAGER">Manager</option>
+                    <option value = "VICE PRESIDENT">Vice President</option>
+                </select><br><br>
+            
+                <label for = "degree"> Select a degree </label>
+                <select id = "degree" name = "degree"><br><br>
+                    <option value = "DOCTORAL">Doctoral</option>
+                    <option value = "MASTERS">Masters</option>
+                    <option value = "NONE">None</option>
+                    <option value = "HIGH_SCHOOL">High School</option>
+                    <option value = "BACHELORS">Bachelors</option>
+                </select><br><br>
+
+                <label for = "major"> Select a major </label>
+                <select id = "major" name = "major">
+                    <option value = "ENGINEERING">Engineering</option>
+                    <option value = "MATH">Math</option>
+                    <option value = "">None</option>
+                    <option value = "compsci">Computer Science</option>
+                    <option value = "physics">Physics</option>
+                    <option value = "literature">Literature</option>
+                    <option value = "chemistry">Chemistry</option>
+                    <option value = "biology">Biology</option>
+                    <option value = "business">Business</option>
+                </select><br><br>
+
+                <label for = "industry"> Select an Industry </label>
+                <select id = "industry" name = "industry">
+                    <option value = "SERVICE">Service</option>
+                    <option value = "HEALTH">Health</option>
+                    <option value = "WEB">Web</option>
+                    <option value = "EDUCATION">Education</option>
+                    <option value = "AUTO">Auto</option>
+                    <option value = "FINANCE">Finance</option>
+                    <option value = "OIL">Oil</option>
+                </select><br><br>
+                
+                <label for = "yearsexp">Years of Experience</label>
+                <input id = "yearsexp" type= "number" name="yearsExperience" min = "0" max = "25" required = "required" /><br><br>
+
+                <label for = "milesfrommetro">Distance From Metro</label>
+                <input id = "milesfrommetro" type= "number" name="milesFromMetropolis" min = "0" max = "99" required = "required" /><br><br>
+
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict salary</button>
+
+            </form>
+
+            <h1 style = "text-align:center"}>$ {{prediction}}</h1>
+
+
+        </div>
+    </body>
+
+</html>
+
+
+
+<!--{{to_predict_params}} <br>
+
+{{prediction}}-->
