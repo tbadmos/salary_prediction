@@ -96,6 +96,12 @@ A second script which takes the file path of the test data set as it input argum
 
 ![predicted_salary_csv](./images/predicted_salary.PNG)
 
+## 6. Deployment (folder: Docker_flask_app)
+A flask app of the model was built in a docker container and tested locally. The dockerized flask app was then deployed with AWS Beanstalk allowing users interact via a web page. A screen shot of the app is shown below.
+
+![app_on_aws](./images/web_ui_aws_deployed.PNG)
+
+
 ## Additions
 A module (helper.py) which contains various functions written for each of the step above was created. At the beginning of each notebook, the helper module and the required functions are imported
 
@@ -103,5 +109,5 @@ A module (helper.py) which contains various functions written for each of the st
 1. During EDA over 15000 rows were found with duplicate features but different salaries. This needs further analysis probably using KNN to select more accurate values
 2. Engineering new features to Improve  MSE of model
 3. Scale numeric features and observe performance
-3. Use objected oriented programming to make code more professional
+3. Use objected oriented programming for added scalability and flexibility
 4. Build dockerized flask app and deploy on AWS 
